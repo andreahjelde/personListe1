@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personregister</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="application/javascript" src="index.js"></script>
+</head>
+
+<body>
+    <h1>Personregister</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form">
+
+                    <div class="form-group">
+                        <label for="navn">Navn:</label>
+                        <input type="text" class="form-control" id="navn">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alder">Alder:</label>
+                        <input type="text" class="form-control" id="alder">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adresse">Adresse: </label>
+                        <input type="text" class="form-control" id="adresse">
+                    </div>
+                </form>
+
+                <button class="btn btn-success" onclick="registrerPerson()">Registrer</button>
+            </div>
+
+            <div class="col-md-8">
+                <h2>Alle registrerte personer:</h2>
+                <div id="utPersoner"></div>
+                <button class="btn btn-danger" onclick="slettAlle()">Tøm listen</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
