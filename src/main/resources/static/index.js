@@ -1,33 +1,29 @@
-function registrerPerson(){
 
+function registrerPerson(){
     const person = {
         navn: $("#navn").val(),
         alder: $("#alder").val(),
         adresse: $("#adresse").val()
     };
 
-    $.post("http://localhost:8080/lagre", person, function(){
+    $.post("/lagre", person, function(){
         hentAlle();
     });
-
 
     //Tømmer input-feltene
     $("#navn").val("");
     $("#alder").val("");
     $("#adresse").val("");
-
-
 }
 
-
 function hentAlle(){
-    $.get("http://localhost:8080/hentAlle", function (personer){
+    $.get("/hentAlle", function (personer){
         formaterData(personer);
     });
 }
 
 function formaterData(personer){
-    let ut = "<table>" +
+    let ut = "<table class='table table-striped'>" +
         "<tr>" +
         "<th>Navn</th>" +
         "<th>Alder</th>" +
@@ -37,7 +33,7 @@ function formaterData(personer){
     for(const person of personer){
         ut +=
             "<tr>" +
-            "<td>" + person.navn + "</td>>" +
+            "<td>" + person.navn + "</td>" +
             "<td>" + person.alder + "</td>" +
             "<td>" + person.adresse + "</td>" +
             "</tr>";
@@ -45,12 +41,12 @@ function formaterData(personer){
 
     ut += "</table>";
 
-    $("$utPersoner").html(ut);
+    $("#utPersoner").html(ut);
 }
 
-
 function slettAlle(){
-    $.get("http://localhost:8080/slettAlle", function(){
+    $.get("/slettAlle", function(){
         hentAlle();
     });
+
 }

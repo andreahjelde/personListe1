@@ -1,4 +1,4 @@
-package com.example.personliste.controller;
+package com.example.personliste;
 
 public class Person {
     private String navn;
